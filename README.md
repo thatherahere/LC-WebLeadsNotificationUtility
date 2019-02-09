@@ -74,7 +74,9 @@
 1. In App Launcher, select the Sales app.
 2. At bottom in Utility bar you will see "Web Leads".
 4. Go To [https://sampleweblead-developer-edition.gus.force.com](https://sampleweblead-developer-edition.gus.force.com), enter your scratch org Id, complete all required fields and Submit the form.
-5. On submit, User will receive notifiction about the new lead.
+5. On submit, User will receive notifiction about the new lead with a sound.
+
+<img src="https://github.com/thatherahere/LC-WebLeadsNotificationUtility/blob/master/Notification.png"/>
 
 
 - Notes:
