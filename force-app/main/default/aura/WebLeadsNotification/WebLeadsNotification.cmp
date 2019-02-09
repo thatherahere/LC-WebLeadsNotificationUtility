@@ -1,0 +1,78 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global">
+    
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="eventName" type="String"/>
+    <aura:attribute name="utilityId" type="String"/>
+    <aura:attribute name="sub" type="Map" />
+    <aura:attribute name="lstLead" type="list"/>
+    <aura:attribute name="leadObj" type="Lead" />
+    
+    <!-- Used to update lead owner on accepting lead -->
+    <force:recordData aura:id="editLeadRecordData"
+                      recordId="{!v.recordId}"
+                      targetFields="{!v.leadObj}"
+                      fields="Id,OwnerId"
+                      mode="EDIT"/>
+ 
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- Enable streaming events -->
+    <lightning:empApi aura:id="empApi" />
+    
+    <!-- Add it to utility bar -->
+    <lightning:utilityBarAPI aura:id="utilitybar"/>
+
+    <!-- -->
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    
+    <div class="slds-notification-container">
+        <aura:iteration items="{!v.lstLead}" var="lead">
+            <section class="slds-notification" role="dialog" aria-labelledby="noti77" aria-describedby="dialog-body-id-21">
+                <div class="slds-notification__body" id="dialog-body-id-21">
+                    <div class="slds-notification__target slds-media">
+                        <span class="slds-icon_container slds-icon-standard-lead slds-media__figure" title="lead">
+                            <lightning:icon iconName="standard:lead" alternativeText="Lead" size="small"/>
+                        </span>
+                        <div class="slds-media__body">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_4-of-6 slds-truncate">
+                                    <h2 class="slds-text-heading--x-small slds-m-bottom--xx-small" id="noti77">
+                                        <span class="slds-assistive-text">Lead notification:</span>{#lead.Name__c}
+                                    </h2>
+                                </div>
+                            </div>
+                            
+                            <div class="slds-truncate" title="{#lead.Title__c+' • '+lead.Company__c}">{#lead.Title__c} • {#lead.Company__c}</div>
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_1-of-2 slds-truncate">
+                                    	<lightning:formattedEmail value="{#lead.Email__c}" hideIcon="true"></lightning:formattedEmail>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2 slds-p-left_small slds-truncate">
+                                    <span><lightning:formattedPhone value="{#lead.Phone__c}"></lightning:formattedPhone></span>
+                                </div>
+                            </div>
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_1-of-2 slds-truncate" title="{#lead.City__c}">{#lead.City__c}</div>
+                                <div class="slds-col slds-size_1-of-2 slds-p-left_small slds-truncate" title="{#lead.State__c}">{#lead.State__c}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-container">
+                        <div class="actions">
+                            <lightning:buttonGroup>
+                                <lightning:button variant="inverse" onclick="{!c.acceptLead}" label="Accept" class="{!lead.index}" />
+                                <lightning:button variant="inverse" label="Decline"  onclick="{!c.closeNotification}" class="{!lead.index}"/>
+                            </lightning:buttonGroup>
+                    	</div>
+                    </div>
+                    
+                </div>
+            </section>
+        </aura:iteration>
+    </div>
+    
+    <audio id="notificationAudio">
+        <source src="{!$Resource.NotificationSound  + '/notification.mp3'}" type="audio/mpeg"/>
+        <source src="{!$Resource.NotificationSound  + '/notification.ogg'}" type="audio/ogg"/>
+    </audio>
+</aura:component>

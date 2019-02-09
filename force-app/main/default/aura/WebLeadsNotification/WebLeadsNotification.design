@@ -1,0 +1,3 @@
+<design:component label="Web Leads">
+	<design:attribute name="eventName" label="Platform Event Name" default="Lead_Platform_Event__e" required="true" description="API Name of your Platform Event" />
+</design:component>
