@@ -1,5 +1,11 @@
 # Small Utility Lightning Component for Web To Lead Notifications
 
+**Business Use Case:**
+> As soon as Visitor submit a Web to lead, All Sales Reps should get Notification in Sales & Sales Console App Utility bar.
+
+**Solution:**
+> A small lightning component using Platform Event, Lightning empAPI component, Lightning Data Service and allowing Reps to Accept or Decline the incoming lead as soon as the are in the system.
+
 <img src="https://github.com/thatherahere/LC-WebLeadsNotificationUtility/blob/master/demo.png"/>
 
 ## Table of Contents
@@ -88,6 +94,7 @@
 1. Lightning Console APIs & Navigation Methods
 1. Lightning Data Service & [Lightning:empAPI component](https://developer.salesforce.com/docs/component-library/bundle/lightning:empApi/documentation)
 1. NO APEX
-1. User can accept the lead or Decline it.
+1. User can accept or Decline the lead.
 1. Only one user can accept the lead. On accept, Lead will be disappeared from other users. 
-1. If Multiple users try to accept the same lead. User accepted the lead first, will own the lead. Other user will receive "You are late. This lead has already taken by someone else." toast to eat :neckbeard:.
+1. If Multiple users try to accept the same lead. User accepted the lead first, will own the lead. Other user will receive "You are late. This lead has already taken by someone else." toast to eat :neckbeard:. 
+1. Have fun exploring!
