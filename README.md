@@ -73,11 +73,13 @@
 ## Explore the application
 1. In App Launcher, select the Sales app.
 2. At bottom in Utility bar you will see "Web Leads".
-4. Go To [https://sampleweblead-developer-edition.gus.force.com](https://sampleweblead-developer-edition.gus.force.com), enter your scratch org Id (Copied above. Don't worry, I never save it), complete all required fields and Submit the form.
+4. Go To [https://sampleweblead-developer-edition.gus.force.com](https://sampleweblead-developer-edition.gus.force.com), enter your scratch org Id, complete all required fields and Submit the form.
 5. On submit, User will receive notifiction about the new lead.
 
 
-- Note: If you are testing with a Developer org, set "Testing with Scratch Org Or Sandbox?" to "No" to receive web to leads.
+- Notes:
+    1.  [https://sampleweblead-developer-edition.gus.force.com](https://sampleweblead-developer-edition.gus.force.com) is a Web to Lead form hosted on a public site in my developer org. This form never save your organization id. It request the organization just to redirect lead to your org.
+    1. If you are testing with a Developer org, set "Testing with Scratch Org Or Sandbox?" to "No" to receive web to leads.
 
 ## Features
 1. Platform Events
@@ -86,4 +88,4 @@
 1. NO APEX
 1. User can accept the lead or Decline it.
 1. Only one user can accept the lead. On accept, Lead will be disappeared from other users. 
-1. If Multiple users try to accept the same lead. User accepted the lead first, will own the lead. Other user will receive "You are late. This lead has already taken by someone else." toast.
+1. If Multiple users try to accept the same lead. User accepted the lead first, will own the lead. Other user will receive "You are late. This lead has already taken by someone else." toast to eat :D.
