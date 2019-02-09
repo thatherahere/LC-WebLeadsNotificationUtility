@@ -1,5 +1,7 @@
 # Small Utility Lightning Component for Web To Lead Notifications
 
+<img src="https://github.com/thatherahere/LC-WebLeadsNotificationUtility/blob/master/demo.png"/>
+
 ## Table of Contents
 - [Installing using Salesforce DX](#installing-using-salesforce-dx)
 - [Explore the application](#explore-the-application)
@@ -55,12 +57,12 @@
     - In Setup, navigate to App Manager.
     - Click Edit in the dropdown menu next to Lightning Sales app.
     - Click the Utility Items tab and add the "Web Leads" from custom components.
-    - Check Start automatically checkbox (It has platform event name as default) and Save it.
+    - Check Start automatically checkbox and Save it.
 
 1. Add Users to "Web Lead Queue" queue:
     - In Setup, navigate to Queues.
     - Click Edit for "Web Lead Queue".
-    - Scroll down to Queue Members and add default user and user create above.
+    - Scroll down to Queue Members and add default user and other users to Selected Members.
 
 1. Get your Organization Id:
     - In Setup, navigate to Company Information
@@ -71,9 +73,9 @@
 ## Explore the application
 1. In App Launcher, select the Sales app.
 2. At bottom in Utility bar you will see "Web Leads".
-3. In another browser, Login to your scratch with user with "Custom: Sales Profile".
-4. Go To [https://sampleweblead-developer-edition.gus.force.com](https://sampleweblead-developer-edition.gus.force.com), enter your scratch org Id, complete all required fields and Submit the form.
-5. On submit, Both users will receive notifiction about the new lead.
+4. Go To [https://sampleweblead-developer-edition.gus.force.com](https://sampleweblead-developer-edition.gus.force.com) (Don't worry, I never save it), enter your scratch org Id, complete all required fields and Submit the form.
+5. On submit, User will receive notifiction about the new lead.
+
 
 - Note: If you are testing with a Developer org, set "Testing with Scratch Org Or Sandbox?" to "No" to receive web to leads.
 
