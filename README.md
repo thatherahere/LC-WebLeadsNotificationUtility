@@ -78,7 +78,7 @@
 
 
 - Notes:
-    1.  [https://sampleweblead-developer-edition.gus.force.com](https://sampleweblead-developer-edition.gus.force.com) is a Web to Lead form hosted on a public site in my developer org. This form never save your organization id. It request the organization just to redirect lead to your org.
+    1.  [https://sampleweblead-developer-edition.gus.force.com](https://sampleweblead-developer-edition.gus.force.com) is a Web to Lead form hosted on a public site in my developer org. This form never save your organization id. It request the organization Id just to redirect lead to your org.
     1. If you are testing with a Developer org, set "Testing with Scratch Org Or Sandbox?" to "No" to receive web to leads.
 
 ## Features
@@ -88,4 +88,4 @@
 1. NO APEX
 1. User can accept the lead or Decline it.
 1. Only one user can accept the lead. On accept, Lead will be disappeared from other users. 
-1. If Multiple users try to accept the same lead. User accepted the lead first, will own the lead. Other user will receive "You are late. This lead has already taken by someone else." toast to eat :D.
+1. If Multiple users try to accept the same lead. User accepted the lead first, will own the lead. Other user will receive "You are late. This lead has already taken by someone else." toast to eat :neckbeard:.
