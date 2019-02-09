@@ -4,7 +4,7 @@
 > As soon as Visitor submit a Web to lead, All Sales Reps should get Notification in Sales & Sales Console App Utility bar.
 
 **Solution:**
-> A small lightning component using Platform Event, Lightning empAPI component, Lightning Data Service and allowing Reps to Accept or Decline the incoming lead as soon as the are in the system.
+> A small lightning component using Platform Event, Lightning empAPI component, Lightning Data Service and allowing Reps to Accept or Decline the incoming leads as soon as they are in the system.
 
 <img src="https://github.com/thatherahere/LC-WebLeadsNotificationUtility/blob/master/demo.png"/>
 
