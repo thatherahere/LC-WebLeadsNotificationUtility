@@ -73,16 +73,16 @@
 ## Explore the application
 1. In App Launcher, select the Sales app.
 2. At bottom in Utility bar you will see "Web Leads".
-4. Go To [https://sampleweblead-developer-edition.gus.force.com](https://sampleweblead-developer-edition.gus.force.com) (Don't worry, I never save it), enter your scratch org Id, complete all required fields and Submit the form.
+4. Go To [https://sampleweblead-developer-edition.gus.force.com](https://sampleweblead-developer-edition.gus.force.com), enter your scratch org Id (Copied above. Don't worry, I never save it), complete all required fields and Submit the form.
 5. On submit, User will receive notifiction about the new lead.
 
 
 - Note: If you are testing with a Developer org, set "Testing with Scratch Org Or Sandbox?" to "No" to receive web to leads.
 
 ## Features
+1. Platform Events
 1. Lightning Console APIs & Navigation Methods
-1. Lightning Data Service
-1. Streaming API ([Lightning:empAPI component](https://developer.salesforce.com/docs/component-library/bundle/lightning:empApi/documentation))
+1. Lightning Data Service & [Lightning:empAPI component](https://developer.salesforce.com/docs/component-library/bundle/lightning:empApi/documentation)
 1. NO APEX
 1. User can accept the lead or Decline it.
 1. Only one user can accept the lead. On accept, Lead will be disappeared from other users. 
