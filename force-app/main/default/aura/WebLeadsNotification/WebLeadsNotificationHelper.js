@@ -13,34 +13,41 @@
             // Add list to existing list to display it to the agent. 
             // You may have your custom logic here to have more filters on lead
             // visibility and lead distribution.
-            console.log(JSON.stringify( message.data.payload ) );
             var lead = message.data.payload;
-            if( lead.Owner_Type__c == 'Queue' ){ 
-                var newLeads = [lead];
-                var existingLeads = component.get("v.lstLead");
-                Array.prototype.push.apply(newLeads, existingLeads);
-                console.log(JSON.stringify( newLeads ) );
-                for( var i = 0; i<newLeads.length; i++ ){
-                    newLeads[i].index = i;
-                }
-                component.set("v.lstLead", newLeads);
-                document.getElementById("notificationAudio").play();
-                this.openNotificationUtility( component, event, helper );
-            }else{
-                // As the lead is now assigned to a user, so remove it 
-                // from the utility of all users.
-                var existingLeads = component.get("v.lstLead");
-                var assignedLeadIndex = -1;
-                for( var i = 0; i<existingLeads.length; i++ ){
-                    if( existingLeads[i].Record_Id__c == lead.Record_Id__c ){
-                  		assignedLeadIndex = i;
-                        break;
+            // fetch lead record.
+            // user record permissions will be verified here.
+            component.set("v.recordId", lead.Record_Id__c );
+            component.find("editLeadRecordData").reloadRecord(false, $A.getCallback(function( loadResult ) {
+                if( !component.get("v.loadError") ){
+                    if( lead.Owner_Type__c == 'Queue' ){ 
+                        var newLeads = [lead];
+                        var existingLeads = component.get("v.lstLead");
+                        Array.prototype.push.apply(newLeads, existingLeads);
+                        for( var i = 0; i<newLeads.length; i++ ){
+                            newLeads[i].index = i;
+                        }
+                        component.set("v.lstLead", newLeads);
+                        document.getElementById("notificationAudio").play();
+                        helper.openNotificationUtility( component, event, helper );
+                    }else{
+                        // As the lead is now assigned to a user, so remove it 
+                        // from the utility of all users.
+                        var existingLeads = component.get("v.lstLead");
+                        var assignedLeadIndex = -1;
+                        for( var i = 0; i<existingLeads.length; i++ ){
+                            if( existingLeads[i].Record_Id__c == lead.Record_Id__c ){
+                                  assignedLeadIndex = i;
+                                break;
+                            }
+                        }
+                        if( assignedLeadIndex != -1 ){
+                            helper.removeLead( component, assignedLeadIndex );
+                        }
                     }
+
+                    component.set("v.loadError", null);
                 }
-                if( assignedLeadIndex != -1 ){
-                    this.removeLead( component, assignedLeadIndex );
-                }
-            }
+            }));
         }.bind(this);
         
         // Error handler function that prints the error to the console.
